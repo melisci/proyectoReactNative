@@ -1,11 +1,16 @@
 import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 buttonContainer: {
+    
     marginTop:20,    
     marginHorizontal:20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     
+    
+    
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    justifyContent: "space-around"
   },
   input: {
     width:'75%',
@@ -13,6 +18,5 @@ buttonContainer: {
     borderBottomWidth:1,
     height:30,
     color: '#212121',
-    
   },
 })

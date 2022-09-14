@@ -1,5 +1,6 @@
 import React, { useState} from 'react'
 import { Button, StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, Modal } from 'react-native';
+import { AddTask, CustomModal  } from './components/index';
 
 export default function App() {
   const [task, setTask] = useState('');
@@ -42,14 +43,16 @@ const onHandleDeleteItem = (id) => {
       <Text style={styles.titulo}> Lista de Compras</Text>
       <View style={styles.buttonContainer}>
       
-      <TextInput 
+      <AddTask
       placeholder='new item' 
       style={styles.input} 
       onChangeText={onHandleChangeText}
       value={task}
+      textButton='ADD'
+      addItem={addItem}
       />
-      <Button title="ADD" 
-      onPress={addItem}/>
+      {/* <Button title='Add'
+      onPress={addItem}/> */}
       </View>
       <FlatList
         style={styles.itemList}
@@ -58,7 +61,7 @@ const onHandleDeleteItem = (id) => {
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false}
       />
-      <Modal animationType='slide' visible={modalVisible}>
+       <CustomModal animationType='slide' visible={modalVisible}>
         <View style={styles.modalContainer}>
           <Text style={styles.modalTitle}>Elemento a eliminar</Text>
         </View>
@@ -80,7 +83,7 @@ const onHandleDeleteItem = (id) => {
             color='#cccccc'
           />
         </View>
-      </Modal>
+      </CustomModal>
     </View>
     
   );
@@ -106,11 +109,7 @@ const styles = StyleSheet.create({
     
   },
   input: {
-    width:'75%',
-    borderBottomColor: '#4a306d',
-    borderBottomWidth:1,
-    height:30,
-    color: '#212121',
+    
     
   },
   itemList: {
@@ -134,7 +133,7 @@ const styles = StyleSheet.create({
   },
   item: {
     fontSize: 16,
-    color: '#000000',
+   
   },
   delete: {
     fontSize: 18,
