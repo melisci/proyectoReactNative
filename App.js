@@ -50,6 +50,7 @@ const onHandleDeleteItem = (id) => {
       value={task}
       textButton='ADD'
       addItem={addItem}
+      item={task}
       />
       {/* <Button title='Add'
       onPress={addItem}/> */}
